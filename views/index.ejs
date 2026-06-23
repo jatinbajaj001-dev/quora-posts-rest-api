@@ -1,0 +1,31 @@
+<%- include("partials/head", { title: "All Posts" }) %>
+<%- include("partials/header") %>
+
+<main class="container">
+    <h1 class="page-title">All Posts</h1>
+
+    <% if (posts.length === 0) { %>
+        <div class="empty-state">
+            <p>No posts yet. Be the first to share something!</p>
+            <a href="/posts/new" class="btn btn-primary">Create New Post</a>
+        </div>
+    <% } else { %>
+        <div class="post-list">
+            <% for (post of posts) { %>
+                <article class="post">
+                    <h3 class="user">@<%= post.username %></h3>
+                    <p class="content"><%= post.content %></p>
+                    <div class="post-actions">
+                        <a href="/posts/<%= post.id %>" class="btn btn-secondary">View</a>
+                        <a href="/posts/<%= post.id %>/edit" class="btn btn-secondary">Edit</a>
+                        <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </article>
+            <% } %>
+        </div>
+    <% } %>
+</main>
+
+<%- include("partials/footer") %>

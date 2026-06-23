@@ -1,0 +1,23 @@
+<%- include("partials/head", { title: "Edit Post" }) %>
+<%- include("partials/header") %>
+
+<main class="container">
+    <a href="/posts" class="back-link">&larr; Back to all posts</a>
+    <h1 class="page-title">Edit Post</h1>
+    <p class="page-subtitle">Editing post by <strong>@<%= post.username %></strong></p>
+
+    <div class="form-card">
+        <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" rows="10" required><%= post.content %></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a href="/posts/<%= post.id %>" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include("partials/footer") %>

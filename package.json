@@ -1,0 +1,19 @@
+{
+  "name": "rest_class",
+  "version": "1.0.0",
+  "description": "Quora-style REST CRUD app built with Express and EJS",
+  "license": "ISC",
+  "author": "Jatin Bajaj",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "method-override": "^3.0.0",
+    "uuid": "^14.0.1"
+  }
+}

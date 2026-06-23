@@ -1,0 +1,21 @@
+<%- include("partials/head", { title: "Post Detail" }) %>
+<%- include("partials/header") %>
+
+<main class="container">
+    <a href="/posts" class="back-link">&larr; Back to all posts</a>
+    <h1 class="page-title">Post Detail</h1>
+    <p class="detail-meta">Post ID: <span><%= post.id %></span></p>
+
+    <article class="post">
+        <h3 class="user">@<%= post.username %></h3>
+        <p class="content"><%= post.content %></p>
+        <div class="post-actions">
+            <a href="/posts/<%= post.id %>/edit" class="btn btn-primary">Edit Post</a>
+            <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+                <button type="submit" class="btn btn-danger">Delete Post</button>
+            </form>
+        </div>
+    </article>
+</main>
+
+<%- include("partials/footer") %>
